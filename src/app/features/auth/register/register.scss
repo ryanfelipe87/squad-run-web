@@ -1,0 +1,275 @@
+.sr-auth-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 32px 20px;
+
+  background:
+    radial-gradient(circle at top right, rgba(255, 87, 51, 0.12), transparent 25%),
+    radial-gradient(circle at bottom left, rgba(255, 87, 51, 0.08), transparent 30%),
+    #0d0f14;
+
+  font-family: 'Barlow', sans-serif;
+}
+
+.sr-auth-box {
+  width: 100%;
+  max-width: 460px;
+
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+
+  border-radius: 18px;
+
+  padding: 42px 36px;
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.sr-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  color: #FF5733;
+
+  text-decoration: none;
+
+  span {
+    color: #fff;
+  }
+}
+
+.sr-auth-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  text-align: center;
+
+  margin-bottom: 32px;
+
+  color: #fff;
+}
+
+.sr-form-group {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+}
+
+.sr-label {
+  font-size: 13px;
+  font-weight: 600;
+
+  color: rgba(255,255,255,0.7);
+
+  margin-bottom: 8px;
+
+  letter-spacing: 0.5px;
+}
+
+.sr-input {
+  width: 100%;
+
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+
+  border-radius: 10px;
+
+  padding: 14px 16px;
+
+  color: #fff;
+
+  font-size: 14px;
+  font-family: 'Barlow', sans-serif;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    box-shadow 0.2s;
+
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: rgba(255,255,255,0.25);
+  }
+
+  &:focus {
+    border-color: rgba(255,87,51,0.8);
+    background: rgba(255,255,255,0.06);
+
+    box-shadow:
+      0 0 0 3px rgba(255,87,51,0.15);
+  }
+}
+
+.sr-role-picker {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+}
+
+.sr-role-option {
+  position: relative;
+
+  cursor: pointer;
+
+  input {
+    display: none;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 14px 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    background: rgba(255,255,255,0.03);
+
+    color: rgba(255,255,255,0.75);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+
+    box-sizing: border-box;
+  }
+
+  input:checked + span {
+    background: rgba(255,87,51,0.15);
+    border-color: #FF5733;
+    color: #fff;
+
+    box-shadow:
+      0 0 0 3px rgba(255,87,51,0.12);
+  }
+
+  &:hover span {
+    border-color: rgba(255,255,255,0.2);
+  }
+}
+
+.sr-btn-primary {
+  width: 100%;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #FF5733;
+  color: #fff;
+
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+
+  box-shadow:
+    0 10px 20px rgba(255,87,51,0.18);
+
+  &:hover:not(:disabled) {
+    background: #ff6d4c;
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+}
+
+.sr-error {
+  margin-top: 6px;
+
+  color: #ff8f7a;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  line-height: 1.5;
+}
+
+.sr-auth-footer {
+  margin-top: 28px;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  color: rgba(255,255,255,0.45);
+
+  a {
+    color: #FF5733;
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+// ── Responsividade ──────────────────────────────────
+@media (max-width: 600px) {
+
+  .sr-auth-box {
+    padding: 32px 22px;
+    border-radius: 14px;
+  }
+
+  .sr-auth-title {
+    font-size: 28px;
+  }
+
+  .sr-role-picker {
+    grid-template-columns: 1fr;
+  }
+
+  .sr-logo {
+    font-size: 26px;
+  }
+}

@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   frontend:
     container_name: squadrun-frontend
@@ -8,4 +6,11 @@ services:
       dockerfile: Dockerfile
     ports:
       - "4200:80"
+    networks:
+      - squadrun_net
     restart: always
+
+networks:
+  squadrun_net:
+    external: true
+    name: squad-run_squadrun_net
