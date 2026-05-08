@@ -1,0 +1,72 @@
+<div class="sr-auth-page">
+  <div class="sr-auth-box">
+    <a routerLink="/" class="sr-logo">SQUAD<span>RUN</span></a>
+
+    <h2 class="sr-auth-title">Criar conta</h2>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <div class="sr-form-group">
+        <label class="sr-label">Nome completo</label>
+        <input class="sr-input" type="text" formControlName="name" placeholder="Seu nome" />
+        @if (hasFieldError('name')) {
+          <span class="sr-error">{{ getFieldError('name') }}</span>
+        }
+      </div>
+
+      <div class="sr-form-group">
+        <label class="sr-label">E-mail</label>
+        <input class="sr-input" type="email" formControlName="email" placeholder="seu@email.com" />
+        @if (hasFieldError('email')) {
+          <span class="sr-error">{{ getFieldError('email') }}</span>
+        }
+      </div>
+
+      <div class="sr-form-group">
+        <label class="sr-label">Senha</label>
+        <input class="sr-input" type="password" formControlName="password" placeholder="Mínimo 8 caracteres" />
+        @if (hasFieldError('password')) {
+          <span class="sr-error">{{ getFieldError('password') }}</span>
+        }
+      </div>
+
+      <div class="sr-form-group">
+        <label class="sr-label">Confirmar senha</label>
+        <input class="sr-input" type="password" formControlName="password_confirmation" placeholder="Repita a senha" />
+        @if (form.hasError('passwordMismatch') && form.get('password_confirmation')?.dirty) {
+          <span class="sr-error">As senhas não coincidem.</span>
+        }
+      </div>
+
+      <div class="sr-form-group">
+        <label class="sr-label">Sou um(a)</label>
+        <div class="sr-role-picker">
+          <label class="sr-role-option">
+            <input type="radio" formControlName="role" value="participant" />
+            <span>🏃 Competidor</span>
+          </label>
+          <label class="sr-role-option">
+            <input type="radio" formControlName="role" value="organizator" />
+            <span>🎽 Organizador</span>
+          </label>
+        </div>
+        @if (hasFieldError('role')) {
+          <span class="sr-error">{{ getFieldError('role') }}</span>
+        }
+      </div>
+
+      @if (globalError) {
+        <div class="sr-error" style="margin-top: 8px;">{{ globalError }}</div>
+      }
+
+      <button class="sr-btn-primary" type="submit" [disabled]="loading" style="margin-top: 24px; width: 100%;">
+        {{ loading ? 'Criando conta...' : 'CRIAR CONTA' }}
+      </button>
+
+    </form>
+
+    <p class="sr-auth-footer">
+      Já tem conta? <a routerLink="/login">Entrar</a>
+    </p>
+  </div>
+</div>
